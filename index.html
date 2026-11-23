@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Bodoni+Moda:opsz,wght@9..96,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=48">
+  <link rel="stylesheet" href="css/styles.css?v=51">
 </head>
 <body data-view="home">
   <header class="site-header">
@@ -477,12 +477,20 @@
       </header>
 
       <div class="galeria-viewport">
-        <img
-          id="galeria-img"
-          src="galeria/8831466f-8cce-496a-9a36-7b33d913d21a.JPG"
-          alt="Instal·lació d'EPÍLEG als Jardins de l'Ateneu Barcelonès"
-          class="galeria-img"
-        >
+        <div class="galeria-pair">
+          <img
+            id="galeria-img-left"
+            src="galeria/8831466f-8cce-496a-9a36-7b33d913d21a.JPG"
+            alt="Instal·lació d'EPÍLEG als Jardins de l'Ateneu Barcelonès"
+            class="galeria-img"
+          >
+          <img
+            id="galeria-img-right"
+            src="galeria/e67352fb-9ab7-4fb1-91f9-f4676127958b.JPG"
+            alt="Projecció i col·loqui obert d'EPÍLEG als Jardins de l'Ateneu Barcelonès"
+            class="galeria-img"
+          >
+        </div>
         <button type="button" class="cycle-nav-arrow galeria-nav-prev" id="galeria-prev" aria-label="Imatge anterior">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <path d="M19 12H5M11 6l-6 6 6 6" />
@@ -497,7 +505,7 @@
 
       <footer class="galeria-bottom-band">
         <div class="galeria-caption">
-          <span class="galeria-counter" id="galeria-counter">01 / 03</span>
+          <span class="galeria-counter" id="galeria-counter">01 / 05</span>
           <span class="galeria-title" id="galeria-title">ATENEU BARCELONÈS · JARDINS — CICLE 01 · CONTRA L’OBLIT</span>
         </div>
         <div class="home-footer-links">
@@ -514,6 +522,6 @@
   <script defer src="js/carousel.js?v=23"></script>
   <script defer src="js/cycles.js?v=29"></script>
   <script defer src="js/entrades.js?v=50"></script>
-  <script defer src="js/app.js?v=50"></script>
+  <script defer src="js/app.js?v=51"></script>
 </body>
 </html>

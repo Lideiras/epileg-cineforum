@@ -258,9 +258,24 @@
         image: 'galeria/fea706ba-0489-42b4-bad9-9b9d90b576e1.JPG',
         title: 'NIU · ESPAI ARTÍSTIC CONTEMPORANI — CICLE 03 · LA LÍNIA INVISIBLE',
         alt: "Exposició i punt de trobada d'EPÍLEG a NIU Espai Artístic Contemporani"
+      },
+      {
+        image: 'galeria/mockup-01.jpg',
+        title: 'CAMPANYA URBANA · BARCELONA — EPÍLEG',
+        alt: "Cartell d'EPÍLEG a una marquesina nocturna a Barcelona"
+      },
+      {
+        image: 'galeria/mockup-02.jpg',
+        title: 'CAMPANYA URBANA · BARCELONA — CICLE 01 · CONTRA L’OBLIT',
+        alt: "Cartell del Cicle 01 d'EPÍLEG a una marquesina nocturna a Barcelona"
       }
     ];
-    const galeriaImg = document.getElementById('galeria-img');
+    galeriaItems.forEach((item) => {
+      const preload = new Image();
+      preload.src = item.image;
+    });
+    const galeriaImgLeft = document.getElementById('galeria-img-left');
+    const galeriaImgRight = document.getElementById('galeria-img-right');
     const galeriaCounter = document.getElementById('galeria-counter');
     const galeriaTitle = document.getElementById('galeria-title');
     const galeriaPrev = document.getElementById('galeria-prev');
@@ -270,10 +285,15 @@
     function renderGaleria(idx) {
       if (!galeriaItems.length) return;
       galeriaIndex = ((idx % galeriaItems.length) + galeriaItems.length) % galeriaItems.length;
-      const item = galeriaItems[galeriaIndex];
-      if (galeriaImg) {
-        galeriaImg.src = item.image;
-        galeriaImg.alt = item.alt;
+      const leftItem = galeriaItems[galeriaIndex];
+      const rightItem = galeriaItems[(galeriaIndex + 1) % galeriaItems.length];
+      if (galeriaImgLeft) {
+        galeriaImgLeft.src = leftItem.image;
+        galeriaImgLeft.alt = leftItem.alt;
+      }
+      if (galeriaImgRight) {
+        galeriaImgRight.src = rightItem.image;
+        galeriaImgRight.alt = rightItem.alt;
       }
       if (galeriaCounter) {
         const cur = String(galeriaIndex + 1).padStart(2, '0');
@@ -281,7 +301,7 @@
         galeriaCounter.textContent = `${cur} / ${tot}`;
       }
       if (galeriaTitle) {
-        galeriaTitle.textContent = item.title;
+        galeriaTitle.textContent = leftItem.title;
       }
     }
 
