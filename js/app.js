@@ -243,7 +243,23 @@
       });
     }
 
-    const galeriaMovies = window.EPILEG.MOVIES || [];
+    const galeriaItems = [
+      {
+        image: 'galeria/8831466f-8cce-496a-9a36-7b33d913d21a.JPG',
+        title: 'ATENEU BARCELONÈS · JARDINS — CICLE 01 · CONTRA L’OBLIT',
+        alt: "Instal·lació d'EPÍLEG als Jardins de l'Ateneu Barcelonès"
+      },
+      {
+        image: 'galeria/e67352fb-9ab7-4fb1-91f9-f4676127958b.JPG',
+        title: 'PROJECCIÓ I DEBAT OBERT — ATENEU BARCELONÈS',
+        alt: "Projecció i col·loqui obert d'EPÍLEG als Jardins de l'Ateneu Barcelonès"
+      },
+      {
+        image: 'galeria/fea706ba-0489-42b4-bad9-9b9d90b576e1.JPG',
+        title: 'NIU · ESPAI ARTÍSTIC CONTEMPORANI — CICLE 03 · LA LÍNIA INVISIBLE',
+        alt: "Exposició i punt de trobada d'EPÍLEG a NIU Espai Artístic Contemporani"
+      }
+    ];
     const galeriaImg = document.getElementById('galeria-img');
     const galeriaCounter = document.getElementById('galeria-counter');
     const galeriaTitle = document.getElementById('galeria-title');
@@ -252,20 +268,20 @@
     let galeriaIndex = 0;
 
     function renderGaleria(idx) {
-      if (!galeriaMovies.length) return;
-      galeriaIndex = ((idx % galeriaMovies.length) + galeriaMovies.length) % galeriaMovies.length;
-      const item = galeriaMovies[galeriaIndex];
+      if (!galeriaItems.length) return;
+      galeriaIndex = ((idx % galeriaItems.length) + galeriaItems.length) % galeriaItems.length;
+      const item = galeriaItems[galeriaIndex];
       if (galeriaImg) {
         galeriaImg.src = item.image;
-        galeriaImg.alt = item.alt || item.title;
+        galeriaImg.alt = item.alt;
       }
       if (galeriaCounter) {
         const cur = String(galeriaIndex + 1).padStart(2, '0');
-        const tot = String(galeriaMovies.length).padStart(2, '0');
+        const tot = String(galeriaItems.length).padStart(2, '0');
         galeriaCounter.textContent = `${cur} / ${tot}`;
       }
       if (galeriaTitle) {
-        galeriaTitle.textContent = `${item.title} — ${item.director} (${item.year})`;
+        galeriaTitle.textContent = item.title;
       }
     }
 
