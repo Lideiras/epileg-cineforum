@@ -208,71 +208,19 @@
     });
 
     window.addEventListener('hashchange', () => {
-      const subscriuteForm = document.getElementById('subscriute-form');
-    const subscriuteFeedback = document.getElementById('subscriute-feedback');
-    const subscriuteBtn = document.getElementById('subscriute-submit');
-    if (subscriuteForm) {
-      subscriuteForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailInput = document.getElementById('subscriute-email');
-        const email = emailInput ? emailInput.value.trim() : '';
-        if (!email) return;
-        if (subscriuteBtn) {
-          subscriuteBtn.classList.add('is-confirmed');
-          subscriuteBtn.textContent = 'SUBSCRIPCIÓ CONFIRMADA ✓';
-        }
-        if (subscriuteFeedback) {
-          subscriuteFeedback.textContent = `Gràcies! Hem registrat ${email} a la llista d'EPÍLEG.`;
-        }
-        subscriuteForm.reset();
+      setView(getRouteFromHash(), false);
+    });
+
+    const sobreStrips = Array.from(document.querySelectorAll('.sobre-strip'));
+    function setActiveSobreStrip(targetStrip) {
+      sobreStrips.forEach((strip) => {
+        strip.classList.toggle('is-active', strip === targetStrip);
       });
     }
-
-    const galeriaMovies = window.EPILEG.MOVIES || [];
-    const galeriaImg = document.getElementById('galeria-img');
-    const galeriaCounter = document.getElementById('galeria-counter');
-    const galeriaTitle = document.getElementById('galeria-title');
-    const galeriaPrev = document.getElementById('galeria-prev');
-    const galeriaNext = document.getElementById('galeria-next');
-    let galeriaIndex = 0;
-
-    function renderGaleria(idx) {
-      if (!galeriaMovies.length) return;
-      galeriaIndex = ((idx % galeriaMovies.length) + galeriaMovies.length) % galeriaMovies.length;
-      const item = galeriaMovies[galeriaIndex];
-      if (galeriaImg) {
-        galeriaImg.src = item.image;
-        galeriaImg.alt = item.alt || item.title;
-      }
-      if (galeriaCounter) {
-        const cur = String(galeriaIndex + 1).padStart(2, '0');
-        const tot = String(galeriaMovies.length).padStart(2, '0');
-        galeriaCounter.textContent = `${cur} / ${tot}`;
-      }
-      if (galeriaTitle) {
-        galeriaTitle.textContent = `${item.title} — ${item.director} (${item.year})`;
-      }
-    }
-
-    if (galeriaPrev) {
-      galeriaPrev.addEventListener('click', () => renderGaleria(galeriaIndex - 1));
-    }
-    if (galeriaNext) {
-      galeriaNext.addEventListener('click', () => renderGaleria(galeriaIndex + 1));
-    }
-    window.addEventListener('keydown', (e) => {
-      if (document.body.dataset.view !== 'galeria') return;
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        renderGaleria(galeriaIndex + 1);
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        renderGaleria(galeriaIndex - 1);
-      }
-    });
-    renderGaleria(0);
-
-    setView(getRouteFromHash(), false);
+    sobreStrips.forEach((strip) => {
+      strip.addEventListener('mouseenter', () => setActiveSobreStrip(strip));
+      strip.addEventListener('click', () => setActiveSobreStrip(strip));
+      strip.addEventListener('focus', () => setActiveSobreStrip(strip));
     });
 
     const subscriuteForm = document.getElementById('subscriute-form');

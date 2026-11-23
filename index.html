@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Bodoni+Moda:opsz,wght@9..96,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=47">
+  <link rel="stylesheet" href="css/styles.css?v=48">
 </head>
 <body data-view="home">
   <header class="site-header">
@@ -415,41 +415,42 @@
       </header>
 
       <div class="sobre-stage">
-        <div class="sobre-panel">
-          <p class="subscriute-kicker">EPÍLEG CINEFÒRUM · BARCELONA</p>
-          <h1 class="sobre-title">SOBRE NOSALTRES</h1>
-          <p class="sobre-lead">
-            EPÍLEG és un cinefòrum independent dedicat al cinema com a eina de memòria, crítica i pensament col·lectiu. Cada temporada articulem tres cicles temàtics per qüestionar el present a través de la imatge i el debat en sala.
-          </p>
-
-          <div class="sobre-grid">
-            <article class="sobre-col">
-              <span class="sobre-col-num">01</span>
-              <h2 class="sobre-col-title">COMISSARIAT</h2>
-              <p class="sobre-col-text">
-                Dotze pel·lícules seleccionades al marge del circuit comercial habitual, dialogant entre obres clàssiques i mirades contemporànies.
-              </p>
-            </article>
-            <article class="sobre-col">
-              <span class="sobre-col-num">02</span>
-              <h2 class="sobre-col-title">PROJECCIÓ I DEBAT</h2>
-              <p class="sobre-col-text">
-                Cada sessió conclou amb un col·loqui obert per compartir lectures sobre la memòria silenciada, el poder mediàtic i la desigualtat social.
-              </p>
-            </article>
-            <article class="sobre-col">
-              <span class="sobre-col-num">03</span>
-              <h2 class="sobre-col-title">CONTACTE</h2>
-              <p class="sobre-col-text">
-                Projeccions mensuals a Barcelona.<br>
-                <a href="mailto:hola@epileg.cat" class="sobre-mail-link">hola@epileg.cat</a>
-              </p>
-            </article>
+        <div class="sobre-layout">
+          <div class="sobre-left">
+            <h1 class="sobre-title">SOBRE<br>NOSALTRES</h1>
           </div>
 
-          <div class="sobre-actions">
-            <a href="#ciclos" class="sobre-cta-primary" data-route="ciclos">EXPLORAR ELS CICLES</a>
-            <a href="#entrades" class="sobre-cta-secondary">ANAR A ENTRADES</a>
+          <div class="sobre-right">
+            <p class="sobre-lead">
+              EPÍLEG és un cinefòrum independent dedicat al cinema com a eina de memòria, crítica i pensament col·lectiu. Cada temporada articulem tres cicles temàtics per qüestionar el present a través de la imatge i el debat en sala.
+            </p>
+
+            <div class="sobre-strips" role="list" aria-label="Pilars d'EPÍLEG">
+              <article class="sobre-strip" role="listitem" tabindex="0">
+                <h2 class="sobre-strip-title">Memòria contra l’oblit.</h2>
+                <p class="sobre-strip-desc">Recuperem relats silenciats i cicatrius històriques per repensar la identitat col·lectiva des de la pantalla.</p>
+              </article>
+
+              <article class="sobre-strip" role="listitem" tabindex="0">
+                <h2 class="sobre-strip-title">Comissariat independent.</h2>
+                <p class="sobre-strip-desc">Dotze pel·lícules seleccionades al marge del circuit comercial habitual, dialogant entre clàssics i mirades contemporànies.</p>
+              </article>
+
+              <article class="sobre-strip is-active" role="listitem" tabindex="0">
+                <h2 class="sobre-strip-title">Projecció i debat en sala.</h2>
+                <p class="sobre-strip-desc">Cada sessió conclou amb un col·loqui obert per compartir lectures sobre la memòria, el poder mediàtic i la desigualtat social.</p>
+              </article>
+
+              <article class="sobre-strip" role="listitem" tabindex="0">
+                <h2 class="sobre-strip-title">Esperit crític i col·lectiu.</h2>
+                <p class="sobre-strip-desc">Entenem el cinema no com a consum passiu, sinó com a punt de trobada per qüestionar les estructures del present.</p>
+              </article>
+
+              <article class="sobre-strip" role="listitem" tabindex="0">
+                <h2 class="sobre-strip-title">Cultura oberta a Barcelona.</h2>
+                <p class="sobre-strip-desc">Projeccions mensuals obertes a tota la comunitat cinèfila · Contacte directe a <a href="mailto:hola@epileg.cat" class="sobre-mail-link">hola@epileg.cat</a>.</p>
+              </article>
+            </div>
           </div>
         </div>
       </div>
@@ -513,6 +514,6 @@
   <script defer src="js/carousel.js?v=23"></script>
   <script defer src="js/cycles.js?v=29"></script>
   <script defer src="js/entrades.js?v=43"></script>
-  <script defer src="js/app.js?v=46"></script>
+  <script defer src="js/app.js?v=48"></script>
 </body>
 </html>
