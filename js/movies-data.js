@@ -30,7 +30,7 @@
       director: 'CARLA SIMÓN',
       year: '2025',
       cycle: 1,
-      image: 'movies/ROMER%C3%8DA_CARLA%20SIM%C3%93N_2025_CICLE%2001.jpg',
+      image: 'movies/ROMERIA_CARLA_SIMON_2025_CICLE_01.jpg',
       alt: 'Fotograma de Romería (2025), dirigida per Carla Simón'
     },
     {

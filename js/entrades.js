@@ -8,18 +8,18 @@
   };
 
   const CUSTOM_TICKET_IMAGES = {
-    'el-pico': 'entradas/EL%20PICO.png',
-    '120-pulsaciones-por-minuto': 'entradas/120%20PULSACIONES%20POR%20MINUTO.png',
-    'romeria': 'entradas/ROMERI%CC%81A.png',
-    'la-bola-negra': 'entradas/ENTRADA_LaBolaNegra_D.jpg',
-    'network': 'entradas/ENTRADA_Network_D.jpg',
-    'the-truman-show': 'entradas/THE%20TRUMAN%20SHOW.png',
-    'fight-club': 'entradas/FIGHT%20CLUB.png',
-    'no-mires-arriba': 'entradas/DON%27T%20LOOK%20UP.png',
-    'modern-times': 'entradas/ENTRADA_ModernTimes_D.jpg',
-    'la-haine': 'entradas/LA%20HAINE.png',
-    'i-daniel-blake': 'entradas/I%2C%20DANIEL%20BLAKE.png',
-    'parasite': 'entradas/PARASITE.png',
+    'el-pico': 'entradas/ticket-el-pico.jpg',
+    '120-pulsaciones-por-minuto': 'entradas/ticket-120-pulsaciones-por-minuto.jpg',
+    'romeria': 'entradas/ticket-romeria.jpg',
+    'la-bola-negra': 'entradas/ticket-la-bola-negra.jpg',
+    'network': 'entradas/ticket-network.jpg',
+    'the-truman-show': 'entradas/ticket-the-truman-show.jpg',
+    'fight-club': 'entradas/ticket-fight-club.jpg',
+    'no-mires-arriba': 'entradas/ticket-no-mires-arriba.jpg',
+    'modern-times': 'entradas/ticket-modern-times.jpg',
+    'la-haine': 'entradas/ticket-la-haine.jpg',
+    'i-daniel-blake': 'entradas/ticket-i-daniel-blake.jpg',
+    'parasite': 'entradas/ticket-parasite.jpg',
   };
 
   class EntradesController {
@@ -52,10 +52,20 @@
       this.animTimer = null;
       this.isAnimating = false;
       this.movieButtons = [];
+      this.preloadedImages = [];
 
+      this.preloadTicketImages();
       this.buildList();
       this.bindEvents();
       this.updateTickets(false);
+    }
+
+    preloadTicketImages() {
+      Object.values(CUSTOM_TICKET_IMAGES).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        this.preloadedImages.push(img);
+      });
     }
 
     buildList() {

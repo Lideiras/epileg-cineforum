@@ -18,7 +18,7 @@
           alt: '120 pulsaciones por minuto (2017)'
         },
         {
-          src: 'movies/ROMER%C3%8DA_CARLA%20SIM%C3%93N_2025_CICLE%2001.jpg',
+          src: 'movies/ROMERIA_CARLA_SIMON_2025_CICLE_01.jpg',
           alt: 'Romería (2025)'
         },
         {
