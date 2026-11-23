@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPÍLEG — Un espai de cinema</title>
+  <meta name="description" content="EPÍLEG — Un espai de cinema dedicat a la mirada pausada, la memòria visual i el carrusel de pel·lícules.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Bodoni+Moda:opsz,wght@9..96,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=47">
+</head>
+<body data-view="home">
+  <header class="site-header">
+    <a href="#home" class="brand-trigger" data-route="home" aria-label="EPÍLEG — Inici">
+      <svg class="brand-asterisk" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true" focusable="false">
+        <g stroke="currentColor" stroke-width="4.4" stroke-linecap="butt">
+          <line x1="32" y1="6" x2="32" y2="33" />
+          <line x1="51" y1="15" x2="31" y2="32" />
+          <line x1="57" y1="36" x2="30" y2="32" />
+          <line x1="41" y1="53" x2="30" y2="32" />
+          <line x1="21" y1="57" x2="31" y2="32" />
+          <line x1="9" y1="41" x2="31" y2="32" />
+          <line x1="12" y1="18" x2="31" y2="32" />
+        </g>
+        <circle cx="31.5" cy="32" r="3" fill="currentColor" />
+      </svg>
+      <span class="brand-compact">EPÍLEG</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navegació principal">
+      <a href="#home" class="nav-link" data-route="home" aria-current="page">HOME</a>
+      <a href="#movies" class="nav-link" data-route="movies">MOVIES</a>
+      <a href="#ciclos" class="nav-link" data-route="ciclos">CICLOS</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section id="view-home" class="view view-home" aria-label="Portada">
+      <h1 class="sr-only">EPÍLEG</h1>
+
+      <div class="home-top-band">
+        <nav class="home-menu" aria-label="Navegació principal">
+          <a href="#home" class="home-menu-link" data-route="home" aria-current="page">INICI</a>
+          <a href="#movies" class="home-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="home-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="home-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+        <span class="home-title-word home-title-epi" aria-hidden="true">EPÍ</span>
+      </div>
+
+      <div class="home-center-strip" role="img" aria-label="Fotograma panoràmic de llum analògica">
+        <img src="assets/home/franja_pag_inicio.svg?v=33" alt="Composició fotogràfica de llum analògica" class="home-strip-img">
+      </div>
+
+      <div class="home-bottom-band">
+        <span class="home-title-word home-title-leg" aria-hidden="true">LEG</span>
+        <div class="home-footer-links">
+          <a href="#entrades" class="home-footer-link">ENTRADES</a>
+          <a href="#sobre" class="home-footer-link">SOBRE NOSALTRES</a>
+          <a href="#subscriute" class="home-footer-link">SUBSCRIU-TE!</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-movies" class="view view-movies" aria-label="Pel·lícules" hidden>
+      <header class="movies-top-band">
+        <nav class="movies-menu" aria-label="Navegació principal">
+          <a href="#home" class="movies-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="movies-menu-link" data-route="movies" aria-current="page">PEL·LÍCULES</a>
+          <a href="#ciclos" class="movies-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="movies-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+      </header>
+
+      <div class="movies-center-franja" aria-hidden="true">
+        <img src="assets/movies/franja_roja.png?v=31" alt="" class="movies-franja-img">
+      </div>
+
+      <aside class="movies-index" aria-label="Llista de pel·lícules">
+        <ul id="movies-list" class="movies-list"></ul>
+      </aside>
+
+      <div
+        class="carousel-stage"
+        id="carousel-stage"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Carrusel 3D de pel·lícules"
+        tabindex="0"
+      >
+        <div class="carousel-track" id="carousel-track"></div>
+        <div class="sr-only" id="carousel-live" aria-live="polite"></div>
+      </div>
+
+      <aside class="movies-meta" aria-label="Informació i controls de navegació">
+        <div class="meta-counter" id="meta-counter">01 / 12</div>
+        <div class="meta-credits" id="meta-credits"></div>
+        <div class="meta-controls">
+          <button type="button" class="meta-btn" id="btn-prev" aria-label="Pel·lícula anterior">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 19V5M6 11l6-6 6 6" />
+            </svg>
+          </button>
+          <button type="button" class="meta-btn" id="btn-next" aria-label="Pel·lícula següent">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 5v14M6 13l6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+        <p class="meta-hint">SCROLL / ↑ ↓</p>
+      </aside>
+
+      <div class="home-footer-links view-corner-footer">
+        <a href="#entrades" class="home-footer-link">ENTRADES</a>
+        <a href="#sobre" class="home-footer-link">SOBRE NOSALTRES</a>
+        <a href="#subscriute" class="home-footer-link">SUBSCRIU-TE!</a>
+      </div>
+    </section>
+
+    <!-- Pàgina principal de cicles (visió cartell general) -->
+    <section id="view-ciclos" class="view view-ciclos" aria-label="Els nostres cicles" hidden>
+      <header class="ciclos-top-band">
+        <nav class="ciclos-menu" aria-label="Navegació principal">
+          <a href="#home" class="ciclos-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="ciclos-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="ciclos-menu-link" data-route="ciclos" aria-current="page">CICLES</a>
+          <a href="#galeria" class="ciclos-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+        <div class="ciclos-header-right">
+          <a href="#ciclos" class="ciclos-badge-link is-active" aria-label="Pàgina principal dels cicles">[ELS NOSTRES CICLES]</a>
+          <nav class="ciclos-subnav" aria-label="Navegació de cicles individuals">
+            <a href="#cicle-1" class="ciclos-subnav-link" data-cycle-target="0">CICLE 01</a>
+            <a href="#cicle-2" class="ciclos-subnav-link" data-cycle-target="1">CICLE 02</a>
+            <a href="#cicle-3" class="ciclos-subnav-link" data-cycle-target="2">CICLE 03</a>
+          </nav>
+        </div>
+      </header>
+
+      <div class="ciclos-body ciclos-overview-view">
+        <div class="ciclos-graphics-wrap">
+          <img
+            src="assets/cycles/ciclos_bottom_text.svg?v=20"
+            alt="Programació dels Cicles: CICLE 01: CONTRA L’OBLIT, CICLE 02: PANTALLA DE FUM, CICLE 03: LA LÍNIA INVISIBLE"
+            class="ciclos-bottom-img"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Pàgines individuals de cada cicle (pàgina separada) -->
+    <section id="view-cicle-page" class="view view-ciclos view-cicle-page" aria-label="Pàgina de cicle individual" hidden>
+      <header class="ciclos-top-band">
+        <nav class="ciclos-menu" aria-label="Navegació principal">
+          <a href="#home" class="ciclos-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="ciclos-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="ciclos-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="ciclos-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+        <div class="ciclos-header-right">
+          <a href="#ciclos" class="ciclos-badge-link" aria-label="Tornar a la pàgina principal de cicles">[ELS NOSTRES CICLES]</a>
+          <nav class="ciclos-subnav" aria-label="Navegació de cicles individuals">
+            <a href="#cicle-1" class="ciclos-subnav-link" data-cycle-target="0">CICLE 01</a>
+            <a href="#cicle-2" class="ciclos-subnav-link" data-cycle-target="1">CICLE 02</a>
+            <a href="#cicle-3" class="ciclos-subnav-link" data-cycle-target="2">CICLE 03</a>
+          </nav>
+        </div>
+      </header>
+
+      <div class="cicle-page-content">
+        <article class="cycle-slide" id="cycle-slide" aria-roledescription="slide" aria-label="Cicle actual">
+          <header class="cycle-top">
+            <div class="cycle-tag" id="cycle-tag"></div>
+            <div class="cycle-strip-viewport" id="cycle-strip-viewport" role="region" aria-label="Fotogrames del cicle">
+              <div class="cycle-strip-track" id="cycle-strip-track"></div>
+            </div>
+          </header>
+
+          <footer class="cycle-bottom">
+            <div class="cycle-copy">
+              <h2 class="cycle-title" id="cycle-title"></h2>
+              <p class="cycle-description" id="cycle-description"></p>
+            </div>
+          </footer>
+        </article>
+
+        <a href="#cicle-3" class="cycle-nav-arrow cycle-nav-prev" id="cycle-prev" aria-label="Cicle anterior">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M19 12H5M11 6l-6 6 6 6" />
+          </svg>
+        </a>
+        <a href="#cicle-2" class="cycle-nav-arrow cycle-nav-next" id="cycle-next" aria-label="Cicle següent">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+
+        <div class="sr-only" id="cycle-live" aria-live="polite"></div>
+      </div>
+
+      <div class="home-footer-links view-corner-footer">
+        <a href="#entrades" class="home-footer-link">ENTRADES</a>
+        <a href="#sobre" class="home-footer-link">SOBRE NOSALTRES</a>
+        <a href="#subscriute" class="home-footer-link">SUBSCRIU-TE!</a>
+      </div>
+    </section>
+
+    <!-- Secció d'Entrades -->
+    <section id="view-entrades" class="view view-entrades" aria-label="Entrades" hidden>
+      <header class="movies-top-band">
+        <nav class="movies-menu" aria-label="Navegació principal">
+          <a href="#home" class="movies-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="movies-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="movies-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="movies-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+        <div class="entrades-top-right">
+          <span class="entrades-badge">[TAQUILLA / ENTRADES]</span>
+        </div>
+      </header>
+
+      <div class="entrades-stage">
+        <aside class="entrades-selector" aria-label="Selecció de pel·lícula">
+          <p class="entrades-selector-label">SELECCIONA PEL·LÍCULA</p>
+          <ul id="entrades-movies-list" class="entrades-movies-list"></ul>
+        </aside>
+
+        <div class="entrades-center">
+          <div class="entrades-envelope is-open" id="entrades-envelope" data-qty="2" role="button" tabindex="0" aria-label="Sobre d'entrades de cinema">
+            <div class="envelope-back" aria-hidden="true"></div>
+
+            <div class="tickets-stack" aria-live="polite">
+              <!-- Entrada secundària (darrere) -->
+              <div class="cinema-ticket cinema-ticket--secondary" id="ticket-secondary" aria-hidden="true">
+                <img class="ticket-custom-img" id="ticket-secondary-custom-img" alt="" hidden>
+                <div class="ticket-stub">
+                  <span class="ticket-stub-brand">EPÍLEG</span>
+                  <span class="ticket-stub-serial" id="ticket-secondary-serial">EP-0126-B</span>
+                </div>
+                <div class="ticket-main">
+                  <div class="ticket-top-row">
+                    <span class="ticket-admit">ADMET UN ESPECTADOR</span>
+                    <span class="ticket-price">8,50 €</span>
+                  </div>
+                  <p class="ticket-title-small" id="ticket-secondary-title">EL PICO</p>
+                  <p class="ticket-sub-small">SALA 01 · FILA 03 · SEIENT 11</p>
+                </div>
+              </div>
+
+              <!-- Entrada principal (davant) -->
+              <div class="cinema-ticket cinema-ticket--primary" id="ticket-primary">
+                <img class="ticket-custom-img" id="ticket-primary-custom-img" alt="" hidden>
+                <div class="ticket-stub">
+                  <span class="ticket-stub-brand">EPÍLEG</span>
+                  <div class="ticket-barcode" aria-hidden="true"></div>
+                  <span class="ticket-stub-serial" id="ticket-primary-serial">EP-0126-A</span>
+                </div>
+                <div class="ticket-main">
+                  <div class="ticket-top-row">
+                    <span class="ticket-cycle" id="ticket-primary-cycle">CICLE 01 · CONTRA L’OBLIT</span>
+                    <span class="ticket-admit">ENTRADA GENERAL</span>
+                  </div>
+                  <div class="ticket-body-row">
+                    <div class="ticket-info">
+                      <h2 class="ticket-title" id="ticket-primary-title">EL PICO</h2>
+                      <p class="ticket-director" id="ticket-primary-director">ELOY DE LA IGLESIA · 1983</p>
+                    </div>
+                    <div class="ticket-thumb-wrap">
+                      <img src="movies/EL%20PICO_ELOY%20DE%20LA%20IGLESIA_1983_CICLE%2001.jpeg" alt="Fotograma de El Pico" id="ticket-primary-thumb" class="ticket-thumb">
+                    </div>
+                  </div>
+                  <div class="ticket-bottom-row">
+                    <span class="ticket-seat" id="ticket-primary-seat">SALA 01 · FILA 03 · SEIENT 10</span>
+                    <span class="ticket-session">20:00 H · BCN</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="envelope-front">
+              <svg class="envelope-pocket-svg" viewBox="0 0 440 240" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,0 L148,0 C168,0 176,34 220,34 C264,34 272,0 292,0 L440,0 L440,240 L0,240 Z" fill="#181715"/>
+                <path d="M0,0 L148,0 C168,0 176,34 220,34 C264,34 272,0 292,0 L440,0" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+              </svg>
+              <div class="envelope-front-content">
+                <div class="envelope-brand-row">
+                  <span class="envelope-asterisk" aria-hidden="true">✳</span>
+                  <span class="envelope-label">EPÍLEG CINEFÒRUM</span>
+                </div>
+                <div class="envelope-meta-row">
+                  <span class="envelope-sub">TAQUILLA OFICIAL · BARCELONA</span>
+                  <span class="envelope-hint">CLICA EL SOBRE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="entrades-controls">
+          <div class="entrades-qty-group" role="group" aria-label="Quantitat d'entrades">
+            <button type="button" class="entrades-qty-btn" data-qty="1" aria-pressed="false">1 ENTRADA</button>
+            <button type="button" class="entrades-qty-btn is-active" data-qty="2" aria-pressed="true">2 ENTRADES</button>
+          </div>
+          <button type="button" class="entrades-reserve-btn" id="entrades-reserve-btn">RESERVAR 2 ENTRADES</button>
+          <p class="entrades-status" id="entrades-status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="home-footer-links view-corner-footer">
+        <a href="#entrades" class="home-footer-link is-active" aria-current="page">ENTRADES</a>
+        <a href="#sobre" class="home-footer-link">SOBRE NOSALTRES</a>
+        <a href="#subscriute" class="home-footer-link">SUBSCRIU-TE!</a>
+      </div>
+    </section>
+
+    <!-- Secció Subscriu-te -->
+    <section id="view-subscriute" class="view view-subscriute" aria-label="Subscriu-te" hidden>
+      <header class="movies-top-band">
+        <nav class="movies-menu" aria-label="Navegació principal">
+          <a href="#home" class="movies-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="movies-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="movies-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="movies-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+        <div class="entrades-top-right">
+          <span class="entrades-badge">[SUBSCRIU-TE!]</span>
+        </div>
+      </header>
+
+      <div class="subscriute-stage">
+        <div class="subscriute-row">
+          <div class="subscriute-panel">
+            <p class="subscriute-kicker">NEWSLETTER · EPÍLEG CINEFÒRUM</p>
+            <h1 class="subscriute-title">SUBSCRIU-TE</h1>
+            <p class="subscriute-copy">
+              Rep la programació mensual, notes curatorials dels cicles i accés anticipat a la taquilla de les projeccions a Barcelona.
+            </p>
+
+            <form id="subscriute-form" class="subscriute-form" novalidate>
+              <div class="subscriute-field">
+                <label for="subscriute-name" class="subscriute-label">NOM</label>
+                <input
+                  type="text"
+                  id="subscriute-name"
+                  name="name"
+                  class="subscriute-input"
+                  placeholder="EL TEU NOM"
+                  autocomplete="name"
+                >
+              </div>
+
+              <div class="subscriute-field">
+                <label for="subscriute-email" class="subscriute-label">CORREU ELECTRÒNIC</label>
+                <input
+                  type="email"
+                  id="subscriute-email"
+                  name="email"
+                  class="subscriute-input"
+                  placeholder="NOM@EXEMPLE.COM"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+
+              <div class="subscriute-prefs" role="group" aria-label="Preferències de cicles">
+                <label class="subscriute-pref-item">
+                  <input type="checkbox" name="cycles" value="cicle-01" checked>
+                  <span>CICLE 01</span>
+                </label>
+                <label class="subscriute-pref-item">
+                  <input type="checkbox" name="cycles" value="cicle-02" checked>
+                  <span>CICLE 02</span>
+                </label>
+                <label class="subscriute-pref-item">
+                  <input type="checkbox" name="cycles" value="cicle-03" checked>
+                  <span>CICLE 03</span>
+                </label>
+              </div>
+
+              <button type="submit" class="subscriute-submit" id="subscriute-submit">
+                ENVIAR SUBSCRIPCIÓ
+              </button>
+              <p class="subscriute-feedback" id="subscriute-feedback" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="subscriute-media" aria-hidden="true">
+            <img src="suscriute/subsciurte.svg?v=45" alt="" class="subscriute-svg-img">
+          </div>
+        </div>
+      </div>
+
+      <div class="home-footer-links view-corner-footer">
+        <a href="#entrades" class="home-footer-link">ENTRADES</a>
+        <a href="#sobre" class="home-footer-link">SOBRE NOSALTRES</a>
+        <a href="#subscriute" class="home-footer-link is-active" aria-current="page">SUBSCRIU-TE!</a>
+      </div>
+    </section>
+
+    <!-- Secció Sobre Nosaltres -->
+    <section id="view-sobre" class="view view-sobre" aria-label="Sobre nosaltres" hidden>
+      <header class="movies-top-band">
+        <nav class="movies-menu" aria-label="Navegació principal">
+          <a href="#home" class="movies-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="movies-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="movies-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="movies-menu-link" data-route="galeria">GALERIA</a>
+        </nav>
+        <div class="entrades-top-right">
+          <span class="entrades-badge">[SOBRE NOSALTRES]</span>
+        </div>
+      </header>
+
+      <div class="sobre-stage">
+        <div class="sobre-panel">
+          <p class="subscriute-kicker">EPÍLEG CINEFÒRUM · BARCELONA</p>
+          <h1 class="sobre-title">SOBRE NOSALTRES</h1>
+          <p class="sobre-lead">
+            EPÍLEG és un cinefòrum independent dedicat al cinema com a eina de memòria, crítica i pensament col·lectiu. Cada temporada articulem tres cicles temàtics per qüestionar el present a través de la imatge i el debat en sala.
+          </p>
+
+          <div class="sobre-grid">
+            <article class="sobre-col">
+              <span class="sobre-col-num">01</span>
+              <h2 class="sobre-col-title">COMISSARIAT</h2>
+              <p class="sobre-col-text">
+                Dotze pel·lícules seleccionades al marge del circuit comercial habitual, dialogant entre obres clàssiques i mirades contemporànies.
+              </p>
+            </article>
+            <article class="sobre-col">
+              <span class="sobre-col-num">02</span>
+              <h2 class="sobre-col-title">PROJECCIÓ I DEBAT</h2>
+              <p class="sobre-col-text">
+                Cada sessió conclou amb un col·loqui obert per compartir lectures sobre la memòria silenciada, el poder mediàtic i la desigualtat social.
+              </p>
+            </article>
+            <article class="sobre-col">
+              <span class="sobre-col-num">03</span>
+              <h2 class="sobre-col-title">CONTACTE</h2>
+              <p class="sobre-col-text">
+                Projeccions mensuals a Barcelona.<br>
+                <a href="mailto:hola@epileg.cat" class="sobre-mail-link">hola@epileg.cat</a>
+              </p>
+            </article>
+          </div>
+
+          <div class="sobre-actions">
+            <a href="#ciclos" class="sobre-cta-primary" data-route="ciclos">EXPLORAR ELS CICLES</a>
+            <a href="#entrades" class="sobre-cta-secondary">ANAR A ENTRADES</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-footer-links view-corner-footer">
+        <a href="#entrades" class="home-footer-link">ENTRADES</a>
+        <a href="#sobre" class="home-footer-link is-active" aria-current="page">SOBRE NOSALTRES</a>
+        <a href="#subscriute" class="home-footer-link">SUBSCRIU-TE!</a>
+      </div>
+    </section>
+
+    <!-- Secció Galeria -->
+    <section id="view-galeria" class="view view-galeria" aria-label="Galeria" hidden>
+      <header class="galeria-top-band">
+        <nav class="ciclos-menu" aria-label="Navegació principal">
+          <a href="#home" class="ciclos-menu-link" data-route="home">INICI</a>
+          <a href="#movies" class="ciclos-menu-link" data-route="movies">PEL·LÍCULES</a>
+          <a href="#ciclos" class="ciclos-menu-link" data-route="ciclos">CICLES</a>
+          <a href="#galeria" class="ciclos-menu-link" data-route="galeria" aria-current="page">GALERIA</a>
+        </nav>
+        <div class="galeria-top-right">
+          <span class="entrades-badge">[GALERIA]</span>
+        </div>
+      </header>
+
+      <div class="galeria-viewport">
+        <img
+          id="galeria-img"
+          src="movies/EL%20PICO_ELOY%20DE%20LA%20IGLESIA_1983_CICLE%2001.jpeg"
+          alt="Fotograma de El Pico (1983)"
+          class="galeria-img"
+        >
+        <button type="button" class="cycle-nav-arrow galeria-nav-prev" id="galeria-prev" aria-label="Imatge anterior">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M19 12H5M11 6l-6 6 6 6" />
+          </svg>
+        </button>
+        <button type="button" class="cycle-nav-arrow galeria-nav-next" id="galeria-next" aria-label="Imatge següent">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+
+      <footer class="galeria-bottom-band">
+        <div class="galeria-caption">
+          <span class="galeria-counter" id="galeria-counter">01 / 12</span>
+          <span class="galeria-title" id="galeria-title">EL PICO — ELOY DE LA IGLESIA (1983)</span>
+        </div>
+        <div class="home-footer-links">
+          <a href="#entrades" class="home-footer-link">ENTRADES</a>
+          <a href="#sobre" class="home-footer-link">SOBRE NOSALTRES</a>
+          <a href="#subscriute" class="home-footer-link">SUBSCRIU-TE!</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script defer src="js/movies-data.js?v=20"></script>
+  <script defer src="js/cycles-data.js?v=28"></script>
+  <script defer src="js/carousel.js?v=23"></script>
+  <script defer src="js/cycles.js?v=29"></script>
+  <script defer src="js/entrades.js?v=43"></script>
+  <script defer src="js/app.js?v=46"></script>
+</body>
+</html>
